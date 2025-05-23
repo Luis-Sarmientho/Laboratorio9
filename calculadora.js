@@ -1,0 +1,48 @@
+// Función que realiza la operación matemática
+    let num1, num2, operacion;
+
+    function realizarOperacion(num1, num2, operacion) {
+      if (operacion === "+") {
+        return num1 + num2;
+      } else if (operacion === "-") {
+        return num1 - num2;
+      } else if (operacion === "*") {
+        return num1 * num2;
+      } else if (operacion === "/") {
+        if (num2 === 0) {
+          return "Error: No se puede dividir por cero.";
+        }
+        return num1 / num2;
+      } else {
+        return "Operación no válida. Intente nuevamente.";
+      }
+    }
+
+    // Bucle para operaciones múltiples
+    let continuar = true;
+    
+    while (continuar) {
+      let input1 = prompt("Ingrese el primer número:");
+      let num1 = parseFloat(input1);
+
+      let input2 = prompt("Ingrese el segundo número:");
+      let num2 = parseFloat(input2);
+
+      let operacion = prompt("Ingrese la operación (+, -, *, /) o escriba 'salir' para terminar:");
+
+      if (operacion.toLowerCase() === "salir") {
+        alert("Gracias por usar la calculadora. ¡Hasta pronto!");
+        continuar = false;
+        break;
+      }
+      // Realizar operación y mostrar resultado
+      let resultado = realizarOperacion(num1, num2, operacion.toLowerCase());
+      alert("Resultado: " + resultado);
+      
+         // Preguntar si desea hacer otra operación
+      let respuesta = confirm("¿Desea realizar otra operación?");
+      if (!respuesta) {
+        alert("Gracias por usar la calculadora. ¡Hasta pronto!");
+        continuar = false;
+    }
+}
